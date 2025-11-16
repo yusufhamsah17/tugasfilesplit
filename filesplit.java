@@ -5,11 +5,9 @@ public class FileSplitter {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Meminta nama file dari pengguna
         System.out.print("Masukkan nama file teks (dengan ekstensi, e.g., input.txt): ");
         String fileName = scanner.nextLine();
 
-        // Membaca isi file
         List<String> lines = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -26,7 +24,7 @@ public class FileSplitter {
             return;
         }
 
-        // Meminta jumlah bagian dari pengguna
+        
         System.out.print("Masukkan jumlah bagian untuk memotong file: ");
         int numParts = scanner.nextInt();
         scanner.nextLine(); // Konsumsi newline
@@ -36,10 +34,10 @@ public class FileSplitter {
             return;
         }
 
-        // Menggunakan Queue untuk menyimpan bagian-bagian
+
         Queue<String> partsQueue = new LinkedList<>();
 
-        // Membagi isi file menjadi bagian-bagian
+    
         int totalLines = lines.size();
         int linesPerPart = totalLines / numParts;
         int remainder = totalLines % numParts;
@@ -55,7 +53,7 @@ public class FileSplitter {
             start = end;
         }
 
-        // Menampilkan isi queue (bagian-bagian file)
+        
         System.out.println("\nFile telah dipotong menjadi " + numParts + " bagian:");
         int partNumber = 1;
         while (!partsQueue.isEmpty()) {
